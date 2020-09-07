@@ -50,6 +50,23 @@
         </div>
     </header>
     <script src="app.js"></script>
-    <script src="console-blocker.js"></script>
+    <script>
+        (function(){
+         
+          let _z = console;
+          Object.defineProperty( window, "console", {
+                get : function(){
+                    if( _z._commandLineAPI ){
+                    throw "Sorry, Can't execute scripts!";
+                          }
+                    return _z; 
+                },
+                set : function(val){
+                    _z = val;
+                }
+          });
+         
+        })();
+    </script>
 </body>
 </html>
