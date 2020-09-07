@@ -74,8 +74,6 @@ const generateField = (difficulty) => {
             }
         }
     }
-    
-    console.log(field)
 
     // Insert amount of bombs to field
     bombsCountField.innerHTML = bombsCount
