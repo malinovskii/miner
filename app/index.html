@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+    <title>Miner game</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-lg-8">
+                    <div class="game-field">
+                        <button class="btn btn-light mt-2" value="0" disabled></button>
+                        <button class="btn btn-light mt-2" value="1" disabled></button>
+                        <button class="btn btn-light mt-2" value="2" disabled></button>
+                        <button class="btn btn-light mt-2" value="3" disabled></button>
+                        <button class="btn btn-light mt-2" value="4" disabled></button>
+                        <button class="btn btn-light mt-2" value="5" disabled></button>
+                        <button class="btn btn-light mt-2" value="6" disabled></button>
+                        <button class="btn btn-light mt-2" value="7" disabled></button>
+                        <button class="btn btn-light mt-2" value="8" disabled></button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h1 class="text-white">Miner Game</h1>  
+                    <p class="text-white player-state">Choose difficulty</p>
+                    <div class="choose-difficulty-section">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultChecked2" name="diff" value="0">
+                            <label class="custom-control-label text-white" for="defaultChecked2">Easy</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultChecked" name="diff" value="1">
+                            <label class="custom-control-label text-white" for="defaultChecked">Medium</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultChecked3" name="diff" value="2">
+                            <label class="custom-control-label text-white" for="defaultChecked3">Hard</label>
+                        </div>
+                    </div>
+                    <p class="text-white mt-3">Bombs: <span class="bombs-count">0</span> </p>
+                    <a href="#" class="btn btn-primary play-button">Play</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="app.js"></script>
+</body>
+</html>
