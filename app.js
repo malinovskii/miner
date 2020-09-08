@@ -128,7 +128,7 @@ const failTurn = btn => {
     // Change color of button
     btn.classList.remove('btn-light')
     btn.classList.add('btn-danger')
-
+    btn.innerHTML += '<i class="fas fa-bomb"></i>'
     // Show play again button
     playButton.classList.remove('d-none')
     playButton.innerHTML = 'You lost, play again'
