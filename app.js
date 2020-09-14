@@ -77,6 +77,8 @@ const generateField = (difficulty) => {
 
     // Insert amount of bombs to field
     bombsCountField.innerHTML = bombsCount
+
+    console.log(field)
 }
 
 // Start game
@@ -105,6 +107,121 @@ playButton.addEventListener('click', () => {
 })
 
 
+const getNearlyBombsCount = value => {
+
+    // Default variables
+    let x
+    let y
+    let counter = 0
+
+    // Setting value of coordinate according to value
+    // (double equal sign because value attribute is string)
+
+    if(value == 0){
+        x = 0
+        y = 0
+    } else if(value == 1) {
+        x = 0
+        y = 1
+    } else if(value == 2) {
+        x = 0
+        y = 2
+    } else if(value == 3) {
+        x = 1
+        y = 0
+    } else if(value == 4) {
+        x = 1
+        y = 1
+    } else if(value == 5) {
+        x = 1
+        y = 2
+    } else if(value == 6) {
+        x = 2
+        y = 0
+    } else if(value == 7) {
+        x = 2
+        y = 1
+    } else if(value == 8) {
+        x = 2
+        y = 2
+    } 
+
+    // Coordinates working well
+
+    // Counting near bombs
+
+    try {
+        if (field[x-1][y+1] === 1) {
+            counter++
+        } 
+  
+    } catch (error) {
+        counter += 0
+    }
+
+    try {
+        if (field[x][y+1] === 1) {
+            counter++
+        }  
+    } catch (error) {
+        counter += 0
+    }
+       
+    try {
+        if (field[x+1][y+1] === 1) {
+            counter++
+        } 
+    } catch (error) {
+        counter += 0
+    }
+
+    try {
+        if (field[x-1][y] === 1) {
+            counter++
+        } 
+    } catch (error) {
+        counter += 0
+    }
+
+    try {
+        if (field[x+1][y] === 1) {
+            counter++
+        }  
+    } catch (error) {
+        counter += 0
+    }
+ 
+    try {
+        if (field[x-1][y-1] === 1) {
+            counter++
+        } 
+    } catch (error) {
+        counter += 0
+    }
+
+    try {
+        if (field[x][y-1] === 1) {
+            counter++
+        }
+    } catch (error) {
+        counter += 0
+    }
+
+    try {
+        if (field[x+1][y-1] === 1) {
+            counter++
+        }
+    } catch (error) {
+        counter += 0
+    }
+      
+ 
+    return counter
+
+
+}
+
+
 // Success turn
 const successTurn = btn => {
     // Change color of button
@@ -114,8 +231,11 @@ const successTurn = btn => {
     // Increase success turns count
     successCount++
 
+    btn.innerHTML += getNearlyBombsCount(btn.value)
+
     // Win condition
     if(successCount === 9 - bombsCount){
+        fieldButtons.forEach(button => button.disabled = true)
         alert('You win! Congratulations!')
         playButton.classList.remove('d-none')
         playButton.innerHTML = 'Another try?'
@@ -141,6 +261,8 @@ const failTurn = btn => {
 
 // Main game loop
 fieldButtons.forEach(btn => btn.addEventListener('click', () => {
+
+    
 
 
     // Show amount of bombs
