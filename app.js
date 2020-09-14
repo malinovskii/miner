@@ -78,7 +78,7 @@ const generateField = (difficulty) => {
     // Insert amount of bombs to field
     bombsCountField.innerHTML = bombsCount
 
-    console.log(field)
+
 }
 
 // Start game
